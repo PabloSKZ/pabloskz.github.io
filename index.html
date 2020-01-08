@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <title>Google</title>
+</head>
+<body>
+    <div class="header-container">
+        <a href="https://mail.google.com/mail/?tab=wm&ogbl">Gmail</a>
+        <a href="https://www.google.fr/imghp?hl=en&tab=wi&ogbl">Images</a>
+        <a href="https://www.google.fr/intl/en/about/products?tab=wh"><img src="app.png" alt="Google App" id="app"></a>
+        <a href="https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.fr/" id="sign">Sign In</a>
+    </div>
+    <div class="main-container">
+        <div class="logo">
+            <img src="logo.png" alt="Google">
+        </div>
+        <div class="search-bar">
+            <input type="text" name="Search" id="search">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="Google Search" onclick="google()">
+            <input type="submit" value="I'm Feeling Lucky" onclick="lucky()">
+        </div>
+    </div>
+    <div class="footer-container">
+        <div class="footer-france">
+            <p>France</p>
+        </div>
+        <div class="footer-main">
+            <div class="footer-left">
+                <a href="https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjgpNWF2vHmAhVJx4UKHbwvD2EQkdQCCBU&url=https%3A%2F%2Fwww.google.fr%2Fintl%2Fen_fr%2Fads%2F%3Fsubid%3Dww-ww-et-g-awa-a-g_hpafoot1_1!o2%26utm_source%3Dgoogle.com%26utm_medium%3Dreferral%26utm_campaign%3Dgoogle_hpafooter%26fg%3D1&usg=AOvVaw2jtCIeRxkQneDiYvkoa40k">Advertising</a>
+                <a href="https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjgpNWF2vHmAhVJx4UKHbwvD2EQktQCCBY&url=https%3A%2F%2Fwww.google.fr%2Fservices%2F%3Fsubid%3Dww-ww-et-g-awa-a-g_hpbfoot1_1!o2%26utm_source%3Dgoogle.com%26utm_medium%3Dreferral%26utm_campaign%3Dgoogle_hpbfooter%26fg%3D1&usg=AOvVaw3oBerwhZw46LsPtxWHNJJA">Business</a>
+                <a href="https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjgpNWF2vHmAhVJx4UKHbwvD2EQkNQCCBc&url=https%3A%2F%2Fabout.google%2F%3Futm_source%3Dgoogle-FR%26utm_medium%3Dreferral%26utm_campaign%3Dhp-footer%26fg%3D1&usg=AOvVaw2FXL3-LVIL6HoBq0oweElA">About</a>
+                <a href="https://google.com/search/howsearchworks/?fg=1">How Search works</a>
+            </div>
+            <div class="footer-right">
+                <a href="https://support.google.com/websearch?p=fr_tos&hl=en-FR&fg=1">Juridicial publication</a>
+                <a href="https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjgpNWF2vHmAhVJx4UKHbwvD2EQ9NMDCBA&url=https%3A%2F%2Fsupport.google.com%2Fwebsearch%3Fp%3Dfr_consumer_info%26hl%3Den-FR%26fg%3D1&usg=AOvVaw3OxXvTAb35QJYzXoy-O2LK">Consumer Information</a>
+                <a href="https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjgpNWF2vHmAhVJx4UKHbwvD2EQ8awCCBE&url=https%3A%2F%2Fpolicies.google.com%2Fprivacy%3Ffg%3D1&usg=AOvVaw12z8DS9cd-g0Aokit_wxri">Privacy</a>
+                <a href="https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjgpNWF2vHmAhVJx4UKHbwvD2EQ8qwCCBI&url=https%3A%2F%2Fpolicies.google.com%2Fterms%3Ffg%3D1&usg=AOvVaw3sEM_N0elgYQx8WbCXpj3n">Terms</a>
+                <a href="https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=webhp&cd=&cad=rja&uact=8&ved=0ahUKEwjgpNWF2vHmAhVJx4UKHbwvD2EQzq0CCBM&url=https%3A%2F%2Fwww.google.fr%2Fpreferences%3Fhl%3Den&usg=AOvVaw1Kq3vRVt-1KRNfkItwQ_YQ">Settings</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function google(){
+           let recherche = document.getElementById('search').value;
+           let url = 'http://www.google.fr/search?q=' + recherche;
+           window.location.replace(url);
+        }
+        function lucky(){
+            let recherche = document.getElementById('search').value;
+           let url = 'https://www.google.com/search?btnI=1&q=' + recherche;
+           window.location.replace(url); 
+        }
+    </script>
+</body>
+</html>

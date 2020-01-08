@@ -1,0 +1,146 @@
+* {
+    font-family: Arial, 'Roboto', sans-serif;
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25px;
+    margin-top: 10px;
+}
+
+.header-container a {
+    margin: 10px;
+    text-decoration: none;
+    color: #424242;
+    font-size: 0.9em;
+}
+
+.header-container a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+#app {
+    opacity: 0.5;
+}
+
+#app:hover {
+    opacity: 1;
+}
+
+#sign {
+    color: #edf3fe;
+    background-color: #4485F5;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 2px;
+    font-weight: 540;
+}
+
+#sign:hover {
+    text-decoration: none;
+    opacity: 1;
+    cursor: default;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    height: 45vh;
+    width: 500px;
+    margin: 7vh auto;
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    margin-bottom: 30px;
+}
+
+input[type=text] {
+    width: 480px;
+    height: 45px;
+    border-radius: 40px;
+    border: 1px solid #d8d6d6;
+    padding-left: 40px;
+}
+.search-bar {
+    position: relative;
+}
+
+.search-bar i {
+    position: absolute;
+    right : 460px;
+    top: 8px;
+    padding: 9px;
+    color: #afafaf;
+}
+
+input[type=text]:hover {
+    box-shadow: 0 0 10px #d8d6d6;
+}
+
+input[type=submit] {
+    padding: 10px 18px;
+    border-radius: 4px;
+    border: solid 1px white;
+    color: #666666;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+input[type=submit]:hover {
+    color: #2d2d2d;
+    border: solid 1px #cacaca;
+}
+
+.footer-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #f1f0f0;
+}
+
+.footer-container a {
+    text-decoration: none;
+    color: #8f8f8f;
+    font-size: 0.8em;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+.footer-france {
+    border: 1px solid #d1d1d1;
+}
+
+.footer-france p {
+    margin: 10px 10px 10px 40px;
+    color: #8f8f8f;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-main {
+    padding: 15px;
+}
+
+.footer-left a {
+    margin-left: 27px;
+}
+
+.footer-right a {
+    margin-right: 27px;
+}
