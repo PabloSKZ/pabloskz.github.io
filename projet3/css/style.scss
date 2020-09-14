@@ -1,0 +1,77 @@
+@import "./variables";
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+a,
+a:link,
+a:visited,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  height: 4rem;
+  width: 100%;
+  background: $white;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $bottom-shadow;
+
+  a {
+    display: inline;
+    position: absolute;
+    left: 5%;
+  }
+}
+
+.btn {
+  color: $white !important;
+  background: $primary;
+  background: linear-gradient(350deg, $primary 0%, $secondary 100%);
+  padding: 1.2rem;
+  border-radius: 3rem;
+  font-weight: bold;
+  box-shadow: $bottom-shadow;
+  transition: box-shadow 0.8s ease-in-out, opacity 0.5s ease-in-out;
+
+  &:hover {
+    opacity: 0.9;
+    box-shadow: $bottom-shadow-more;
+  }
+}
+
+footer {
+  background: $darkest-grey;
+  color: $white;
+  display: flex;
+  flex-flow: column;
+  padding: 1rem;
+
+  img {
+    filter: invert(1);
+    margin: 1rem 0;
+  }
+
+  a,
+  a:link,
+  a:visited,
+  a:active,
+  a:focus {
+    color: $white;
+    margin: 0.3rem;
+
+    i {
+      width: 1rem;
+      margin-right: 0.5rem;
+    }
+  }
+}
