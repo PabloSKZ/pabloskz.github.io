@@ -33,12 +33,12 @@ function validate(e) {
     !location5.checked &&
     !location6.checked
   ) {
-    locationError.innerHTML = "gnagnagna";
+    locationError.innerHTML = "Veuillez cocher un lieu";
     e.preventDefault();
   }
 
   if (!checkbox1.checked) {
-    conditionsError.innerHTML = "gnagnagna";
+    conditionsError.innerHTML = "Veuillez accepter les conditions";
     e.preventDefault();
   }
 }

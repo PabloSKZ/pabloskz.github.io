@@ -41,6 +41,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
 }
 
 .hide {
@@ -55,6 +56,13 @@ img {
     opacity: 0;
     transform: translateY(-3rem);
   }
+}
+
+#locationError,
+#conditionsError {
+  color: red;
+  font-size: 1rem;
+  text-align: initial !important;
 }
 
 .topnav {
@@ -141,7 +149,7 @@ main {
   padding-right: 2vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .modal-btn {
