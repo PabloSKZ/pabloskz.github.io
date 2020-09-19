@@ -10,6 +10,10 @@ a {
   text-decoration: none;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 /* Header */
 
 header {
@@ -204,9 +208,15 @@ header a:visited {
 
   .filters {
     flex-flow: row wrap;
-    transform: scale(0.8);
-    width: 120%;
-    margin-left: -10%;
+  }
+
+  .filters h3 {
+    margin-right: 100%;
+    margin-bottom: 0;
+  }
+
+  .filters a {
+    margin-right: 2rem;
   }
 }
 
