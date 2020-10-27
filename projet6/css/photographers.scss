@@ -1,0 +1,321 @@
+@import "./variables";
+
+.profile {
+  width: 80%;
+  margin: auto;
+  background: $clr-lightest-grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  height: 15rem;
+
+  &__left {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+}
+
+.btn {
+  height: 1.3rem;
+  margin-left: 4rem;
+}
+
+.copy-line {
+  color: $clr-dark-grey;
+  margin-top: 2rem;
+}
+
+.tags {
+  margin-top: 2rem;
+}
+
+.pp {
+  height: $pp-big-size;
+  width: $pp-big-size;
+}
+
+.dropdown {
+  width: 80%;
+  margin: 2rem auto 0 auto;
+  position: relative;
+  z-index: 9;
+
+  & button {
+    padding-right: 0.5rem;
+    width: 8rem;
+
+    &:hover,
+    &:focus {
+      color: $clr-white;
+      background: $clr-primary;
+    }
+  }
+
+  & .material-icons {
+    position: absolute;
+    left: 6rem;
+  }
+
+  & ul {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  & li {
+    color: $clr-white;
+    background: $clr-primary;
+    border-top: white 1px solid;
+    width: 8rem;
+
+    & a,
+    a:link,
+    a:visited,
+    a:active,
+    a:focus {
+      display: block;
+      color: $clr-white;
+      padding: 1.2rem 1.5rem;
+    }
+  }
+}
+
+.galery {
+  display: flex;
+  flex-flow: wrap;
+  width: 80%;
+  margin: auto;
+  margin-top: 3rem;
+  min-height: 50vh;
+}
+
+.likes-price {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  width: 30%;
+  bottom: 0;
+  margin: 0 2rem 0 auto;
+  background: $clr-secondary-bg;
+  font-size: 1.8rem;
+}
+
+.modal-bg,
+.lightbox-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal {
+  position: relative;
+  background: $clr-secondary-bg;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+
+  &__close {
+    color: $clr-white;
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    cursor: pointer;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+
+  & .btn {
+    margin: 1rem 0 1rem 0;
+    width: 6rem;
+    text-align: center;
+
+    &:hover {
+      background: $clr-secondary;
+    }
+  }
+}
+
+input {
+  height: 2.5rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.3rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  padding: 0.2rem 0.5rem;
+  box-sizing: border-box;
+
+  &[type="textarea"] {
+    height: 7rem;
+    padding: 0.2rem 0.5rem;
+    resize: none;
+    overflow: auto;
+  }
+
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+  }
+}
+
+label {
+  font-size: 1.5rem;
+  color: $clr-darker-grey;
+  margin-top: 0.2rem;
+}
+
+.contact-name {
+  margin-left: 0.2rem;
+}
+
+.lightbox {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  & .material-icons,
+  .close-lightbox {
+    font-size: 5rem;
+    color: $clr-primary;
+    cursor: pointer;
+  }
+
+  & .close-lightbox {
+    margin-top: -50%;
+    margin-left: -4rem;
+  }
+
+  & img,
+  & video {
+    max-width: 100%;
+    max-height: 50vh;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  header {
+    height: 5rem;
+    margin-top: 1rem;
+  }
+
+  .likes-price {
+    display: none;
+  }
+
+  #contact {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 100;
+    margin-left: 0;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .profile {
+    background: $clr-white;
+  }
+
+  .dropdown {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .profile {
+    margin: auto;
+    padding: 0;
+    width: 70%;
+  }
+
+  .pic__img,
+  .pic__video,
+  .pic__text {
+    width: 100%;
+  }
+
+  .pp {
+    height: 8rem;
+    width: 8rem;
+    transform: translate(-7rem, 0);
+  }
+
+  .lightbox {
+    width: 80%;
+  }
+
+  .lightbox img,
+  .lightbox video {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .profile {
+    margin-left: 1rem;
+    padding: 0;
+    width: 70%;
+  }
+
+  .pp {
+    height: 7rem;
+    width: 7rem;
+    transform: translate(-8rem, 0.8rem);
+  }
+
+  .tags {
+    transform: translate(-0.8rem, 0);
+    width: 90%;
+  }
+
+  .galery {
+    margin-top: 1rem;
+  }
+
+  .pic {
+    margin: 0.7rem auto;
+  }
+
+  .lightbox {
+    width: 100%;
+    transform: translate(-2rem, 0);
+
+    img,
+    video {
+      width: 80%;
+    }
+
+    & .material-icons,
+    & .close-lightbox {
+      font-size: 2rem;
+    }
+
+    & .close-lightbox {
+      transform: translate(2.5rem, -3rem);
+    }
+  }
+}

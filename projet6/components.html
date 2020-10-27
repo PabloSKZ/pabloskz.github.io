@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="lib/fontawesome-free-5.14.0-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Fisheye</title>
+  </head>
+  <body>
+    <!-- Logo -->
+    <img src="assets/logo.svg" alt="Fisheye Home page" id="logo" />
+
+    <!-- Profile Picture -->
+    <img
+      src="assets/Photographers_ID_Photos/EllieRoseWilkens.jpg"
+      alt="Fisheye Home page"
+      class="pp"
+    />
+
+    <!-- Button -->
+    <a href="#" class="btn">Engagez-moi</a>
+
+    <!-- Tag -->
+    <a href="#" class="tag">#Portrait</a>
+
+    <!-- Photographer -->
+    <h1 class="name">Kold Barkley</h1>
+    <p class="location">Auckland, New Zealand</p>
+    <p class="copy-line">Photographe et réalisateur <3</p>
+    <p class="price">400€/jour</p>
+
+    <!-- Picture -->
+    <div class="pic">
+      <img
+        src="assets/Nabeel/Portrait_AfternoonBreak.jpg"
+        alt="Portrait AfternoonBreak"
+        class="pic__img"
+      />
+      <div class="pic__text">
+        <p class="pic__title">Photo</p>
+        <p class="pic__price">70 €</p>
+        <p class="pic__likes">12 <i class="fas fa-heart"></i></p>
+      </div>
+    </div>
+
+    <!-- Order Select -->
+    <div class="custom-select">
+      <select name="order" id="order">
+        <option value="popularity">Popularité</option>
+        <option value="date">Date</option>
+        <option value="title">Titre</option>
+      </select>
+    </div>
+    <script src="js/select.js"></script>
+  </body>
+</html>

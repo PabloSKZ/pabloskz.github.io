@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="../lib/fontawesome-free-5.14.0-web/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/photographers.css" />
+    <title>Fisheye</title>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html" id="logo">
+        <img src="../assets/logo.svg" alt="Fisheye Home page" />
+      </a>
+    </header>
+    <div class="profile">
+      <div class="profile__left">
+        <div class="profile__left__text">
+          <h1 id="name" class="name"></h1>
+          <p id="location" class="location"></p>
+          <p id="copyline" class="copy-line"></p>
+          <div id="tags" class="tags"></div>
+        </div>
+        <a href="#" id="contact" class="btn">Contactez-moi</a>
+      </div>
+
+      <img src="" alt="Fisheye Home page" id="pp" class="pp" />
+    </div>
+
+    <div id="modal-bg" class="modal-bg hide">
+      <div class="modal">
+        <h1>
+          Contactez-moi <br />
+          <span id="contact-name" class="contact-name"></span>
+        </h1>
+        <span id="close-modal" class="modal__close">x</span>
+        <form>
+          <label for="fname">Prénom</label>
+          <input type="text" name="fname" id="fname-input" />
+          <span id="fname-error" class="form-errors"></span>
+          <label for="lname">Nom</label>
+          <input type="text" name="lname" id="lname-input" />
+          <span id="lname-error" class="form-errors"></span>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email-input" />
+          <span id="email-error" class="form-errors"></span>
+          <label for="message">Votre message</label>
+          <input type="textarea" name="message" wrap="off" id="message-input" />
+          <span id="message-error" class="form-errors"></span>
+          <button id="submit" type="submit" class="btn">Envoyer</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="lightbox-bg" class="lightbox-bg hide">
+      <div class="lightbox">
+        <span id="lightbox-previous" class="material-icons">
+          keyboard_arrow_left
+        </span>
+        <img
+          src="../assets/Ellie-Rose/Architecture_Cross_Bar.jpg"
+          alt=""
+          id="lightbox-picture"
+        />
+        <video class="hide" id="lightbox-video" controls autoplay></video>
+        <span id="lightbox-next" class="material-icons">
+          keyboard_arrow_right
+        </span>
+        <span id="close-lightbox" class="close-lightbox">x</span>
+      </div>
+    </div>
+
+    <div id="dropdown" class="dropdown">
+      <button id="dropdown-button">
+        <span id="dropdown-selected">Popularité</span>
+        <span id="dropdown-arrow" class="material-icons"
+          >keyboard_arrow_down</span
+        >
+      </button>
+      <ul id="dropdown-list" class="hide">
+        <li id="dropdown-list-popularity">
+          <a href="#">Popularité</a>
+        </li>
+        <li id="dropdown-list-date"><a href="#">Date</a></li>
+        <li id="dropdown-list-title"><a href="#">Titre</a></li>
+      </ul>
+    </div>
+    <div id="gallery" class="galery"></div>
+    <div class="likes-price">
+      <span
+        ><span id="total-likes">215</span> <i class="fas fa-heart"></i
+      ></span>
+      <span><span id="price">300</span> € / jours</span>
+    </div>
+    <script src="../js/photographers.js" type="module"></script>
+  </body>
+</html>
