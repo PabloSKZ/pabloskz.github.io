@@ -58,21 +58,25 @@ function renderPictures(picturesSorted, selectedTag = "") {
       pictureName = splitFileName(picturesSorted[j].image);
       galleryHTML += `
       <div class="pic">
-        <img
-          src="../../assets/${photographer.name.split(" ")[0]}/${
+        <a href="#" id="p${
+          picturesSorted[j].id
+        }" aria-label="${pictureName}, closeup view"
+        class="pic__link">
+          <img
+            src="../../assets/${photographer.name.split(" ")[0]}/${
         picturesSorted[j].image
       }"
-          alt="Portrait AfternoonBreak"
-          class="pic__img"
-          id="p${picturesSorted[j].id}"
-        />
+            alt="${pictureName}"
+            class="pic__img"
+          />
+        </a>
         <div class="pic__text">
           <p class="pic__title">${pictureName}</p>
           <p class="pic__price">${picturesSorted[j].price} €</p>
           <p class="pic__likes"><span>${picturesSorted[j].likes}</span> 
           <a href="#" id="${
             picturesSorted[j].id
-          }" class="like-button"><i class="fas fa-heart"></i></a></p>
+          }" class="like-button" aria-label="likes"><i class="fas fa-heart"></i></a></p>
         </div>
       </div>
       `;
@@ -83,15 +87,20 @@ function renderPictures(picturesSorted, selectedTag = "") {
       pictureName = splitFileName(picturesSorted[j].video);
       galleryHTML += `
       <div class="pic">
-        <video
-          src="../../assets/${photographer.name.split(" ")[0]}/${
+        <a href="#" id="p${
+          picturesSorted[j].id
+        }" aria-label="${pictureName}, closeup view"
+        class="pic__link">
+          <video
+            src="../../assets/${photographer.name.split(" ")[0]}/${
         picturesSorted[j].video
       }"
-          alt="Portrait AfternoonBreak"
-          class="pic__img"
-          id="p${picturesSorted[j].id}"
-        >
-        </video>
+            alt="${pictureName}"
+            class="pic__img"
+            id="p${picturesSorted[j].id}"
+          >
+          </video>
+        </a>
         <div class="play-icon">
           <span class="material-icons">
             play_arrow
@@ -115,7 +124,7 @@ function renderPictures(picturesSorted, selectedTag = "") {
   Array.from($pictureCollection).forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
-      lightbox(picturesSorted, selectedTag, el.id);
+      lightbox(el.id);
     });
   });
 
@@ -139,23 +148,30 @@ function renderPictures(picturesSorted, selectedTag = "") {
   });
 }
 
-function lightbox(picturesSorted, selectedTag = "", clickedPicture) {
+function lightbox(clickedPicture) {
   clickedPicture = clickedPicture.substring(1);
+
   let pictureToShow = data.media.find((x) => x.id == clickedPicture);
   if (pictureToShow.image != undefined) {
+    pictureName = splitFileName(pictureToShow.image);
     $lightboxVideo.classList.add("hide");
     $lightboxPicture.classList.remove("hide");
     $lightboxPicture.setAttribute(
       "src",
       `../assets/${photographer.name.split(" ")[0]}/${pictureToShow.image}`
     );
+    $lightboxPicture.setAttribute("alt", `${pictureName}`);
+    $lightboxTitle.innerHTML = `${pictureName}`;
   } else if (pictureToShow.video != undefined) {
+    pictureName = splitFileName(pictureToShow.video);
     $lightboxPicture.classList.add("hide");
     $lightboxVideo.classList.remove("hide");
     $lightboxVideo.setAttribute(
       "src",
       `../assets/${photographer.name.split(" ")[0]}/${pictureToShow.video}`
     );
+    $lightboxVideo.setAttribute("alt", `${pictureName}`);
+    $lightboxTitle.innerHTML = `${pictureName}`;
   }
   $lightboxPicture.setAttribute("id", `${pictureToShow.id}`);
   $lightboxBg.classList.remove("hide");
@@ -163,51 +179,50 @@ function lightbox(picturesSorted, selectedTag = "", clickedPicture) {
 
 function lightboxNext(picturesSorted, selectedTag = "") {
   let picturesFiltered = filterPictures(picturesSorted, selectedTag);
-  let nextPictureIndex =
+  let nextPictureIndex = picturesFiltered.length - 1;
+  if (
     picturesFiltered.indexOf(
       picturesFiltered.find((x) => x.id == $lightboxPicture.id)
-    ) + 1;
-  if (
-    picturesFiltered[nextPictureIndex].image != undefined ||
-    picturesFiltered[nextPictureIndex].video != undefined
+    ) !=
+    picturesFiltered.length - 1
   ) {
-    lightbox(
-      picturesFiltered,
-      selectedTag,
-      `p${picturesFiltered[nextPictureIndex].id}`
-    );
+    nextPictureIndex =
+      picturesFiltered.indexOf(
+        picturesFiltered.find((x) => x.id == $lightboxPicture.id)
+      ) + 1;
+  }
+  if (
+    // ?? useless ??
+    picturesFiltered[nextPictureIndex].image == undefined &&
+    picturesFiltered[nextPictureIndex].video == undefined
+  ) {
+    console.log("stop");
   } else {
-    nextPictureIndex = 0;
-    lightbox(
-      picturesFiltered,
-      selectedTag,
-      `p${picturesFiltered[nextPictureIndex].id}`
-    );
+    lightbox(`p${picturesFiltered[nextPictureIndex].id}`);
   }
 }
 
 function lightboxPrevious(picturesSorted, selectedTag = "") {
   let picturesFiltered = filterPictures(picturesSorted, selectedTag);
-  let previousPictureIndex =
+  let previousPictureIndex = 0;
+  if (
     picturesFiltered.indexOf(
       picturesFiltered.find((x) => x.id == $lightboxPicture.id)
-    ) - 1;
-  if (
-    picturesFiltered[previousPictureIndex].image != undefined ||
-    picturesFiltered[previousPictureIndex].video != undefined
+    ) != 0
   ) {
-    lightbox(
-      picturesFiltered,
-      selectedTag,
-      `p${picturesFiltered[previousPictureIndex].id}`
-    );
+    previousPictureIndex =
+      picturesFiltered.indexOf(
+        picturesFiltered.find((x) => x.id == $lightboxPicture.id)
+      ) - 1;
+  }
+  if (
+    // ?? useless ??
+    picturesFiltered[previousPictureIndex].image == undefined &&
+    picturesFiltered[previousPictureIndex].video == undefined
+  ) {
+    console.log("stop");
   } else {
-    previousPictureIndex = 0;
-    lightbox(
-      picturesFiltered,
-      selectedTag,
-      `p${picturesSorted[previousPictureIndex].id}`
-    );
+    lightbox(`p${picturesFiltered[previousPictureIndex].id}`);
   }
 }
 
@@ -330,6 +345,7 @@ const $lightboxPicture = document.getElementById("lightbox-picture");
 const $lightboxVideo = document.getElementById("lightbox-video");
 const $lightboxNext = document.getElementById("lightbox-next");
 const $lightboxPrevious = document.getElementById("lightbox-previous");
+const $lightboxTitle = document.getElementById("lightbox-title");
 
 const $dropdownButton = document.getElementById("dropdown-button");
 const $dropdownSelected = document.getElementById("dropdown-selected");
@@ -341,7 +357,7 @@ const $dropdownTitle = document.getElementById("dropdown-list-title");
 
 const $likeButtons = document.getElementsByClassName("like-button");
 const $tagCollection = document.getElementsByClassName("tag");
-const $pictureCollection = document.getElementsByClassName("pic__img");
+const $pictureCollection = document.getElementsByClassName("pic__link");
 
 /* Get id from url params */
 const queryString = window.location.search;
@@ -427,6 +443,18 @@ $lightboxPrevious.addEventListener("click", (e) => {
   lightboxPrevious(picturesSorted, selectedTag);
 });
 
+document.addEventListener("keydown", (e) => {
+  if (!$lightboxBg.classList.contains("hide")) {
+    if (e.key == "ArrowRight") {
+      lightboxNext(picturesSorted, selectedTag);
+    } else if (e.key == "ArrowLeft") {
+      lightboxPrevious(picturesSorted, selectedTag);
+    } else if (e.key == "Escape") {
+      $lightboxBg.classList.add("hide");
+    }
+  }
+});
+
 /* Render Photographer Profile */
 $name.innerHTML = photographer.name;
 $location.innerHTML = `${photographer.city}, ${photographer.country}`;
@@ -435,6 +463,7 @@ $pp.setAttribute(
   "src",
   `../assets/Photographers_ID_Photos/${photographer.portrait}`
 );
+$pp.setAttribute("alt", `${photographer.name}`);
 for (let i in photographer.tags) {
   tagsHTML += `<a href="#" class="tag">#${photographer.tags[i]}</a>`;
 }

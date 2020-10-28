@@ -33,10 +33,12 @@
           <p id="copyline" class="copy-line"></p>
           <div id="tags" class="tags"></div>
         </div>
-        <a href="#" id="contact" class="btn">Contactez-moi</a>
+        <a href="#" id="contact" class="btn" aria-label="Contact Me"
+          >Contactez-moi</a
+        >
       </div>
 
-      <img src="" alt="Fisheye Home page" id="pp" class="pp" />
+      <img src="" alt="Profile Picture" id="pp" class="pp" />
     </div>
 
     <div id="modal-bg" class="modal-bg hide">
@@ -65,38 +67,56 @@
     </div>
 
     <div id="lightbox-bg" class="lightbox-bg hide">
-      <div class="lightbox">
-        <span id="lightbox-previous" class="material-icons">
-          keyboard_arrow_left
-        </span>
+      <div class="lightbox" aria-label="image closeup view">
+        <a href="#" id="lightbox-previous" aria-label="Previous Image">
+          <span class="material-icons"> keyboard_arrow_left </span>
+        </a>
         <img
           src="../assets/Ellie-Rose/Architecture_Cross_Bar.jpg"
           alt=""
           id="lightbox-picture"
         />
         <video class="hide" id="lightbox-video" controls autoplay></video>
-        <span id="lightbox-next" class="material-icons">
-          keyboard_arrow_right
-        </span>
-        <span id="close-lightbox" class="close-lightbox">x</span>
+        <a href="#" id="lightbox-next" aria-label="Next Image">
+          <span class="material-icons"> keyboard_arrow_right </span>
+        </a>
+        <a
+          href="#"
+          id="close-lightbox"
+          aria-label="Close Dialog"
+          class="close-lightbox"
+        >
+          <span>x</span>
+        </a>
+      </div>
+      <p id="lightbox-title" class="lightbox-title"></p>
+    </div>
+
+    <div class="order-by" id="order-by" aria-label="Order By">
+      <p>Trier par</p>
+      <div id="dropdown" class="dropdown">
+        <button
+          id="dropdown-button"
+          aria-labelledby="order-by"
+          role="button"
+          aria-haspopup="listbox"
+          aria-expanded="true"
+        >
+          <span id="dropdown-selected">Popularité</span>
+          <span id="dropdown-arrow" class="material-icons"
+            >keyboard_arrow_down</span
+          >
+        </button>
+        <ul id="dropdown-list" class="hide">
+          <li id="dropdown-list-popularity">
+            <a href="#">Popularité</a>
+          </li>
+          <li id="dropdown-list-date"><a href="#">Date</a></li>
+          <li id="dropdown-list-title"><a href="#">Titre</a></li>
+        </ul>
       </div>
     </div>
 
-    <div id="dropdown" class="dropdown">
-      <button id="dropdown-button">
-        <span id="dropdown-selected">Popularité</span>
-        <span id="dropdown-arrow" class="material-icons"
-          >keyboard_arrow_down</span
-        >
-      </button>
-      <ul id="dropdown-list" class="hide">
-        <li id="dropdown-list-popularity">
-          <a href="#">Popularité</a>
-        </li>
-        <li id="dropdown-list-date"><a href="#">Date</a></li>
-        <li id="dropdown-list-title"><a href="#">Titre</a></li>
-      </ul>
-    </div>
     <div id="gallery" class="galery"></div>
     <div class="likes-price">
       <span

@@ -354,7 +354,7 @@ export default {
       price: 45,
     },
     {
-      id: 2523434634,
+      id: 2523434644,
       photographerId: 243,
       image: "Portrait_Background.jpg",
       tags: ["portait"],
@@ -483,8 +483,7 @@ export default {
     {
       id: 9259398453,
       photographerId: 195,
-      video:
-        "Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4",
+      video: "Architecture_coverr_circle_empty_highway_in_buenos_aires.mp4",
       tags: ["architecture"],
       likes: 57,
       date: "2020-01-20",

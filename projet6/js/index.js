@@ -11,7 +11,7 @@ function renderIndex() {
 
     for (let j in tags) {
       tagsHTML += `
-      <a href="#" class="tag">
+      <a href="#" class="tag" aria-label="tag">
           #${tags[j]}
       </a>
       `;
@@ -21,7 +21,7 @@ function renderIndex() {
       <a href="photographers/?id=${data.photographers[i].id}" class="photographer-link">
         <img
           src="assets/Photographers_ID_Photos/${data.photographers[i].portrait}"
-          alt="Fisheye Home page"
+          alt="${data.photographers[i].name}"
           class="pp"
         />
         <h2 class="name">${data.photographers[i].name}</h2>
