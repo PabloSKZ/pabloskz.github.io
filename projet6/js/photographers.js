@@ -63,9 +63,9 @@ function renderPictures(picturesSorted, selectedTag = "") {
         }" aria-label="${pictureName}, closeup view"
         class="pic__link">
           <img
-            src="../../assets/${photographer.name.split(" ")[0]}/${
-        picturesSorted[j].image
-      }"
+            src="https://assets-github-pabloskz.s3.eu-west-3.amazonaws.com/${
+              photographer.name.split(" ")[0]
+            }/${picturesSorted[j].image}"
             alt="${pictureName}"
             class="pic__img"
           />
@@ -92,9 +92,9 @@ function renderPictures(picturesSorted, selectedTag = "") {
         }" aria-label="${pictureName}, closeup view"
         class="pic__link">
           <video
-            src="../../assets/${photographer.name.split(" ")[0]}/${
-        picturesSorted[j].video
-      }"
+            src="https://assets-github-pabloskz.s3.eu-west-3.amazonaws.com/${
+              photographer.name.split(" ")[0]
+            }/${picturesSorted[j].video}"
             alt="${pictureName}"
             class="pic__img"
             id="p${picturesSorted[j].id}"
@@ -158,7 +158,9 @@ function lightbox(clickedPicture) {
     $lightboxPicture.classList.remove("hide");
     $lightboxPicture.setAttribute(
       "src",
-      `../assets/${photographer.name.split(" ")[0]}/${pictureToShow.image}`
+      `https://assets-github-pabloskz.s3.eu-west-3.amazonaws.com/${
+        photographer.name.split(" ")[0]
+      }/${pictureToShow.image}`
     );
     $lightboxPicture.setAttribute("alt", `${pictureName}`);
     $lightboxTitle.innerHTML = `${pictureName}`;
@@ -168,7 +170,9 @@ function lightbox(clickedPicture) {
     $lightboxVideo.classList.remove("hide");
     $lightboxVideo.setAttribute(
       "src",
-      `../assets/${photographer.name.split(" ")[0]}/${pictureToShow.video}`
+      `https://assets-github-pabloskz.s3.eu-west-3.amazonaws.com/${
+        photographer.name.split(" ")[0]
+      }/${pictureToShow.video}`
     );
     $lightboxVideo.setAttribute("alt", `${pictureName}`);
     $lightboxTitle.innerHTML = `${pictureName}`;
@@ -192,7 +196,6 @@ function lightboxNext(picturesSorted, selectedTag = "") {
       ) + 1;
   }
   if (
-    // ?? useless ??
     picturesFiltered[nextPictureIndex].image == undefined &&
     picturesFiltered[nextPictureIndex].video == undefined
   ) {
@@ -216,7 +219,6 @@ function lightboxPrevious(picturesSorted, selectedTag = "") {
       ) - 1;
   }
   if (
-    // ?? useless ??
     picturesFiltered[previousPictureIndex].image == undefined &&
     picturesFiltered[previousPictureIndex].video == undefined
   ) {
@@ -339,6 +341,7 @@ const $emailError = document.getElementById("email-error");
 const $messageError = document.getElementById("message-error");
 const $submit = document.getElementById("submit");
 
+const $lightbox = document.getElementById("lightbox");
 const $lightboxBg = document.getElementById("lightbox-bg");
 const $closeLightbox = document.getElementById("close-lightbox");
 const $lightboxPicture = document.getElementById("lightbox-picture");
@@ -376,6 +379,7 @@ const pictures = data.media.filter((x) => x.photographerId == id);
 /* Initialization */
 let tagsHTML = "";
 let galleryHTML = "";
+let clickOnLightbox = false;
 
 let pictureName = "";
 let sortValue = "popularity";
@@ -443,6 +447,23 @@ $lightboxPrevious.addEventListener("click", (e) => {
   lightboxPrevious(picturesSorted, selectedTag);
 });
 
+document.addEventListener("click", (e) => {
+  e.preventDefault();
+  clickOnLightbox = false;
+});
+
+$lightbox.addEventListener("click", (e) => {
+  e.preventDefault();
+  clickOnLightbox = true;
+});
+
+$lightboxBg.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (!clickOnLightbox) {
+    $lightboxBg.classList.add("hide");
+  }
+});
+
 document.addEventListener("keydown", (e) => {
   if (!$lightboxBg.classList.contains("hide")) {
     if (e.key == "ArrowRight") {
@@ -461,7 +482,7 @@ $location.innerHTML = `${photographer.city}, ${photographer.country}`;
 $copyline.innerHTML = photographer.tagline;
 $pp.setAttribute(
   "src",
-  `../assets/Photographers_ID_Photos/${photographer.portrait}`
+  `https://assets-github-pabloskz.s3.eu-west-3.amazonaws.com/Photographers_ID_Photos/${photographer.portrait}`
 );
 $pp.setAttribute("alt", `${photographer.name}`);
 for (let i in photographer.tags) {
@@ -492,3 +513,19 @@ Array.from($tagCollection).forEach((el) => {
     }
   });
 });
+
+// ! To output new media alt : decomment following block
+
+/* const mediaWithAlt = createAlt(data.media);
+console.log(JSON.stringify(mediaWithAlt));
+
+function createAlt(media) {
+  for (let i in media) {
+    if (media[i].image != undefined) {
+      media[i].alt = splitFileName(media[i].image);
+    } else if (media[i].video != undefined) {
+      media[i].alt = splitFileName(media[i].video);
+    }
+  }
+  return media;
+} */

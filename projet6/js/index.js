@@ -20,7 +20,7 @@ function renderIndex() {
     <div class="card hide" id="${data.photographers[i].id}"">
       <a href="photographers/?id=${data.photographers[i].id}" class="photographer-link">
         <img
-          src="assets/Photographers_ID_Photos/${data.photographers[i].portrait}"
+          src="https://assets-github-pabloskz.s3.eu-west-3.amazonaws.com/Photographers_ID_Photos/${data.photographers[i].portrait}"
           alt="${data.photographers[i].name}"
           class="pp"
         />
