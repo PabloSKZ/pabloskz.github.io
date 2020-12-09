@@ -362,6 +362,8 @@ const $likeButtons = document.getElementsByClassName("like-button");
 const $tagCollection = document.getElementsByClassName("tag");
 const $pictureCollection = document.getElementsByClassName("pic__link");
 
+const $logo = document.getElementById("logo");
+
 /* Get id from url params */
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -474,6 +476,11 @@ document.addEventListener("keydown", (e) => {
       $lightboxBg.classList.add("hide");
     }
   }
+});
+
+$logo.addEventListener("click", (e) => {
+  e.preventDefault();
+  location.replace("../index.html");
 });
 
 /* Render Photographer Profile */
