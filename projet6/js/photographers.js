@@ -84,7 +84,7 @@ function renderPictures(picturesSorted, selectedTag = "") {
       picturesSorted[j].video != undefined &&
       (picturesSorted[j].tags.includes(selectedTag) || selectedTag == "")
     ) {
-      pictureName = splitFileName(picturesSorted[j].video);
+      /* pictureName = splitFileName(picturesSorted[j].video);
       galleryHTML += `
       <div class="pic">
         <a href="#" id="p${
@@ -115,7 +115,7 @@ function renderPictures(picturesSorted, selectedTag = "") {
           }" class="like-button"><i class="fas fa-heart"></i></a></p>
         </div>
       </div>
-      `;
+      `; */
     }
   }
   $gallery.innerHTML = galleryHTML;

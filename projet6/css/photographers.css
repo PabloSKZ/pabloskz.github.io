@@ -204,7 +204,7 @@ label {
 
 .lightbox-bg {
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .lightbox {
@@ -274,7 +274,6 @@ label {
   .profile {
     margin: auto;
     padding: 0;
-    width: 70%;
   }
   .pic__img,
   .pic__video,
@@ -284,7 +283,7 @@ label {
   .pp {
     height: 8rem;
     width: 8rem;
-    transform: translate(-7rem, 0);
+    /* transform: translate(-7rem, 0); */
   }
   .lightbox {
     width: 80%;
@@ -318,7 +317,7 @@ label {
   }
   .tags {
     /* transform: translate(-0.8rem, 0); */
-    width: 90%;
+    width: 65vw;
   }
   .galery {
     margin-top: 1rem;
