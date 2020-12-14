@@ -1,5 +1,9 @@
 /* Colors */
 /* Sizes */
+* {
+  box-sizing: border-box;
+}
+
 .profile {
   width: 80%;
   margin: auto;
@@ -237,7 +241,7 @@ label {
   transform: translate(-50%, 0);
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1050px) {
   header {
     height: 5rem;
     margin-top: 1rem;
@@ -260,6 +264,9 @@ label {
   }
   .order-by {
     display: none;
+  }
+  .galery {
+    flex-flow: column wrap;
   }
 }
 
@@ -291,17 +298,26 @@ label {
 
 @media only screen and (max-width: 500px) {
   .profile {
-    margin-left: 1rem;
-    padding: 0;
-    width: 70%;
+    margin: 0;
+    padding: 0.5rem;
+    width: 80vw;
   }
   .pp {
-    height: 7rem;
-    width: 7rem;
-    transform: translate(-8rem, 0.8rem);
+    height: 6rem;
+    width: 6rem;
+    /* transform: translate(-8rem, 0.8rem); */
+  }
+  .name {
+    font-size: 2rem;
+  }
+  .location {
+    font-size: 1.2rem;
+  }
+  .copyline {
+    font-size: 1rem;
   }
   .tags {
-    transform: translate(-0.8rem, 0);
+    /* transform: translate(-0.8rem, 0); */
     width: 90%;
   }
   .galery {
@@ -324,5 +340,8 @@ label {
   }
   .lightbox .close-lightbox {
     transform: translate(2.5rem, -3rem);
+  }
+  #contact {
+    font-size: 1rem;
   }
 }
